@@ -1,0 +1,7 @@
+.env
+assignment/
+social_networking_app/__pycache__
+user_manager/__pycache__
+user_manager/migrations
+friend_requests_manager/__pycache__
+friend_requests_manager/migrations

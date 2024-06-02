@@ -1,0 +1,36 @@
+services:
+
+  web:
+    build: .
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - '8000:8000'
+    network_mode: host  
+    depends_on:
+      [db]
+    #     condition: service_healthy
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    #   timeout: 5s
+    #   retries: 160
+
+  db:
+    platform: linux/x86_64
+    user: root
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'assignment'
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - '3306:3306'
+
+  
+
+
+     
