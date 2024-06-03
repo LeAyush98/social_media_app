@@ -9,6 +9,7 @@ done
 >&2 echo "Database is healthy - running migrations"
 # Run migrations
 docker exec -it social_media_app-master-web-1 python manage.py makemigrations
+docker exec -it social_media_app-master-web-1 python manage.py makemigrations friend_requests_manager
 docker exec -it social_media_app-master-web-1 python manage.py migrate
 
 >&2 echo "Starting Django development server"
