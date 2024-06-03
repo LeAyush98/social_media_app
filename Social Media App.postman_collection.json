@@ -67,7 +67,11 @@
 			"name": "Search User",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzE4MzI3LCJpYXQiOjE3MTczMTQ3MjcsImp0aSI6IjJmMmVjZDA4OWJjMTQ3MTQ5YTYxNTE0NDU2NWY1NjQwIiwidXNlcl9pZCI6Mn0.dNl5jqpwNZIQwJltDXdqPi7TnbjAiviQ6I_z-b-9nDE",
+						"type": "text"
+					}],
 				"url": {
 					"raw": "localhost:8000/search_user?search=ayu.sharma798@gmail.com",
 					"host": [
