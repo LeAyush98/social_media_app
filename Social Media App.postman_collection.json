@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "fd4a83a8-28ce-4f75-9314-2944a2b0eac5",
+		"name": "Social Media App",
+		"description": "A Django-based social media application with MySQL as the database, Docker for containerization, and Postman for API testing.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26785331"
+	},
+	"item": [
+		{
+			"name": "Create User / Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"test@gmail.com\",\n    \"password\" : \"test123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/create_user",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"create_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User / Generate Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"rahul@gmail.com\",\n    \"password\" : \"rahul123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/login_user",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/search_user?search=ayu.sharma798@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"search_user"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "ayu.sharma798@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Friend Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzE4MzI3LCJpYXQiOjE3MTczMTQ3MjcsImp0aSI6IjJmMmVjZDA4OWJjMTQ3MTQ5YTYxNTE0NDU2NWY1NjQwIiwidXNlcl9pZCI6Mn0.dNl5jqpwNZIQwJltDXdqPi7TnbjAiviQ6I_z-b-9nDE",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_user\" : \"ayu.sharma798@gmail.com\",\n    \"to_user\" : \"nitin@gmail.com\"\n}\n\n"
+				},
+				"url": {
+					"raw": "localhost:8000/send_friend_request",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"send_friend_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Pending Friend Requests",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzIwMjEyLCJpYXQiOjE3MTczMTY2MTIsImp0aSI6IjY2YjI1ZTk4Y2JmZTRjM2I5MzMwN2EwY2MzMzEzMDIwIiwidXNlcl9pZCI6Mn0.jQg17PYv15pgqP5OaqWk-nQviW3Z-139b-UlYx8wXF0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/display_pending_requests?email=ayu.sharma798@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"display_pending_requests"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ayu.sharma798@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Friend Request",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzIwNzQ0LCJpYXQiOjE3MTczMTcxNDQsImp0aSI6IjNkZWNiNTFjYmUxZDQ1NThiNTVkNGE5Yzc0NmMyODBhIiwidXNlcl9pZCI6Mn0.IT93iFJ3O_xDXSbWTGWtVxvAm2zDiDxEHEtcLLaVeEo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_user\" : \"ayu.sharma798@gmail.com\",\n    \"to_user\" : \"nitin@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/accept_friend_request",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"accept_friend_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject Friend Request",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzE2NTk2LCJpYXQiOjE3MTczMTI5OTYsImp0aSI6ImVhNTI5MWU4MWEzYTRmYjVhMTVkMDYwZDEyZjExNTE2IiwidXNlcl9pZCI6Mn0.aFYHBN6kaOiQ7SRR3Ij3L2HTQ9_4EJS0vMZncsNUD38",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_user\" : \"ayu.sharma798@gmail.com\",\n    \"to_user\" : \"dilasha@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/reject_friend_request",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reject_friend_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Friends",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzIwMjEyLCJpYXQiOjE3MTczMTY2MTIsImp0aSI6IjY2YjI1ZTk4Y2JmZTRjM2I5MzMwN2EwY2MzMzEzMDIwIiwidXNlcl9pZCI6Mn0.jQg17PYv15pgqP5OaqWk-nQviW3Z-139b-UlYx8wXF0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/display_friends",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"display_friends"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
