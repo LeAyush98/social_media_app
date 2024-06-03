@@ -52,7 +52,7 @@ A Django-based social media application with MySQL as the database, Docker for c
 
 ### Postman Collection
 
-Use the provided Postman collection to test the API endpoints. Import the collection into Postman and follow the included examples to interact with the API.
+Postman collection is provided in the parent folder. Import the collection into Postman and follow the included examples to interact with the API.
 
 ### Notes
 

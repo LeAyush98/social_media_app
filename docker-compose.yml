@@ -1,5 +1,6 @@
 services:
   db:
+    container_name: social_media_app-master-db-1  # Custom container name for the database service
     platform: linux/x86_64
     user: root
     image: mysql:8
@@ -20,6 +21,7 @@ services:
       - social_media_app-master_my-network
 
   web:
+    container_name: social_media_app-master-web-1  # Custom container name for the web service
     build: .
     restart: always
     command: python manage.py runserver 0.0.0.0:8000
