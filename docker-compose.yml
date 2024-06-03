@@ -18,7 +18,7 @@ services:
       timeout: 5s
       retries: 3
     networks:
-      - social_media_app-master_my-network
+      - social_media_app_my-network
 
   web:
     container_name: social_media_app-master-web-1  # Custom container name for the web service
@@ -35,8 +35,8 @@ services:
     environment:
       MYSQL_HOST: db  # Use the service name 'db' instead of 'localhost'
     networks:
-      - social_media_app-master_my-network
+      - social_media_app_my-network
 
 networks:
-  social_media_app-master_my-network:
+  social_media_app_my-network:
     driver: bridge
