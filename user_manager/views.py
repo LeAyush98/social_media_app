@@ -23,14 +23,20 @@ class UserCreate(APIView):
         if "email" not in data.keys() or "password" not in data.keys():
             return Response({"msg": "Missing Required Credentials"}, status=status.HTTP_400_BAD_REQUEST)
         
+
         # Ensure email is case insensitive
         data["email"] = data["email"].lower()
+
+        # Check if user already exists
+        if User.objects.filter(email=data["email"]).exists():
+            return Response({"msg": "User already exists"}, status=status.HTTP_400_BAD_REQUEST)
 
         # Serialize the data
         serializer = UserCreationManagerSerialiser(data=data)
 
         # Check if data is valid
         if serializer.is_valid():
+
             serializer.save()
             return Response("User Registered", status=status.HTTP_201_CREATED)
         else:
