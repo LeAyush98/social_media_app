@@ -85,12 +85,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'assignment',
-        "HOSTNAME": "dbs",
-        "USER": "root",
-        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
-        "PORT": "3306"
+        'USER': 'root',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': 'db',  # Use the service name 'db'
+        'PORT': '3306',  # The default MySQL port inside the container
     }
 }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
