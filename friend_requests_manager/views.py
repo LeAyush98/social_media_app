@@ -146,6 +146,8 @@ class DisplayFriends(APIView):
 
         # Find all accepted friend requests for the given email
         friends = FriendRequest.objects.filter(from_user=email, status="Accepted")
+        if not friends:
+            friends = FriendRequest.objects.filter(to_user=email, status="Accepted")
 
         # Serialize the data
         serializer = DisplayFriendRequestSerialiser(friends, many=True)
