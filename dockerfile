@@ -13,7 +13,8 @@ RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends
 
-RUN apt-get install -y libmariadb-dev
+RUN apt-get install -y default-mysql-client
+RUN rm -rf /var/lib/apt/lists/*
 
 # Copy initialization script
 COPY init_db.sh /usr/local/bin/init_db.sh
@@ -29,9 +30,3 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project code into the container
 COPY . /code/
 
-# Run migrations and collect static files
-# RUN python manage.py migrate
-# RUN python manage.py collectstatic --noinput
-
-# # Start the Django development server
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

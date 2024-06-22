@@ -16,7 +16,7 @@ import os
 from datetime import timedelta
 
 load_dotenv(".env")
-print(f"************************ {os.getenv('MYSQL_PASSWORD')}")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -85,12 +85,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'assignment',
-        "HOSTNAME": "localhost",
-        "USER": "root",
-        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
-        "PORT": "3306"
+        'USER': 'root',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': 'db',  # Use the service name 'db'
+        'PORT': '3306',  # The default MySQL port inside the container
     }
 }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

@@ -10,7 +10,7 @@ class DisplayPendingFriendRequestSerialiser(ModelSerializer):
 class DisplayFriendRequestSerialiser(ModelSerializer):
     class Meta:
         model = FriendRequest
-        fields = ["to_user"]
+        fields = ["to_user","from_user"]
 
 class ManageFriendRequestSerialiser(ModelSerializer):
     class Meta:
